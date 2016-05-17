@@ -1,0 +1,9 @@
+#!/bin/sh
+THESIS_FOLDER_PATTERN="thesis/"
+git diff --cached --name-only | if grep --quiet "$THESIS_FOLDER_PATTERN"
+then
+  cd thesis
+  ./build.sh
+  cd ..
+  git add thesis/thesis.pdf
+fi

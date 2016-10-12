@@ -1,7 +1,7 @@
 library(zoo)
 
 # Load the CSV Data (containing time, ping, download/upload)
-dat <- read.table("speedtest.csv", header=T)
+dat <- read.table("speedtest.csv", sep="\t", header=T)
 
 # Order the data by date
 temp <- zoo(x = dat, order.by = dat[,1])
